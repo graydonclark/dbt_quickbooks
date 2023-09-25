@@ -24,7 +24,7 @@ gl_period_balance as (
         account_sub_type,
         financial_statement_helper,
         account_class,
-        class_id,
+        CASE WHEN class_id is not null THEN null ELSE class_id END AS class_id,
         cast({{ dbt.date_trunc("year", "transaction_date") }} as date) as date_year,
         cast({{ dbt.date_trunc("month", "transaction_date") }} as date) as date_month,
         sum(adjusted_amount) as period_balance
@@ -58,7 +58,7 @@ gl_beginning_balance as (
         account_sub_type,
         financial_statement_helper,
         account_class,
-        class_id,
+        CASE WHEN class_id is not null THEN null ELSE class_id END AS class_id,
         date_year,
         date_month, 
         period_balance as period_net_change,
@@ -132,7 +132,7 @@ final as (
         account_type,
         account_sub_type,
         account_class,
-        class_id,
+        CASE WHEN class_id is not null THEN null ELSE class_id END AS class_id,
         financial_statement_helper,
         date_year,
         period_first_day,
@@ -146,5 +146,5 @@ final as (
 
 )
 
-select *
+select distinct *
 from final

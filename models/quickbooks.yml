@@ -344,8 +344,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - account_id
-            - class_id
-            - source_relation 
+            - source_relation
             - period_first_day
     columns:
       - name: account_id

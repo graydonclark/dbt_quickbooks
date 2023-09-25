@@ -59,7 +59,7 @@ vars:
     cash_flow_statement_type_ordinal: []
 
     using_address: false
-    using_bill: false
+    using_bill: true
     using_bill_linked_txn: false
     using_bill_payment_line: false
     using_bill_payment: false
@@ -72,7 +72,7 @@ vars:
     using_department: false
     using_deposit: true
     using_estimate: false
-    using_invoice: false
+    using_invoice: true
     using_invoice_bundle: false
     using_journal_entry: true
     using_payment: false
